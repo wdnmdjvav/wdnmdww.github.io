@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>水利第一猛男王威</title>
+</head>
+<body>
+  <h1 style = "text-align:center">来和水利第一猛男聊天</h1>
+<style type="text/css">
+    *{font-size: 14px; padding:0; margin:0;}
+    .main{
+        position: relative;
+        margin: 20px auto;
+        border: 1px solid steelblue;
+        width: 430px;
+        height: 400px;
+    }
+    .msgInput{
+        display: block;
+        width: 406px;
+        height: 60px;
+        margin: 10px auto;
+
+    }
+    .sendbtn{
+        position: absolute;
+        width: 100px;
+        height: 29px;
+        bottom: 5px;
+        right: 10px;
+    }
+    .content{
+        list-style: none;
+        width: 410px;
+        height: 280px;
+        margin: 5px auto;
+        border: 1px dotted #D1D3D6;
+        overflow-y: scroll;
+    }
+    .msgContent{
+        width:auto;
+        max-width: 250px;
+        height: auto;
+        word-break: break-all;
+        margin: 5px;
+        padding: 3px;
+        border-radius: 5px;
+    }
+    .content .left{
+        float: left;
+        text-align: left;
+        background-color: lightgrey;
+    }
+
+    .content .right{
+        float: right;
+        text-align: right;
+        background-color: yellowgreen;
+    }
+
+
+</style>
+<script type="text/javascript">
+    window.onload=function(){
+
+        var input = document.getElementById('msg_input');
+        document.getElementById('sendbtn').onclick=function () {
+            //var input1 = document.getElementById('msg_input');//
+            //input0
+
+            sendMsg();
+        }
+        document.onkeypress = function (event) {
+            var e = event || window.event;
+            var keycode = e.keyCode || e.which;
+            console.log(e)
+            if( keycode==10){
+                sendMsg()
+            }
+        }
+
+        function sendMsg() {
+            var input = document.getElementById('msg_input');
+            var ul = document.getElementById('content');
+            var imgRiver = document.createElement('img')
+            imgRiver.src = "https://q1.qlogo.cn/g?b=qq&nk=10001&s=640"
+            imgRiver.alt = "mht"
+            imgRiver.height = 30
+            imgRiver.style="float:right;border-radius:8px"
+            ul.appendChild(imgRiver);
+            var newLi = document.createElement('li');
+            newLi.innerHTML = input.value;
+            newLi.className = 'msgContent right';
+            ul.appendChild(newLi);
+            var divbread = document.createElement('div');
+            divbread.style = 'clear:both';
+            ul.appendChild(divbread);
+            var imgbread = document.createElement('img')
+            imgbread.src = "https://q1.qlogo.cn/g?b=qq&nk=1325936461&s=640"
+            imgbread.alt = "ww"
+            imgbread.height = 30
+            imgbread.style="float:left;border-radius:8px"
+            ul.appendChild(imgbread);
+            var newLi30 = document.createElement('li');
+            newLi30.innerHTML = "我爱你，嫁给我好不好？";
+            newLi30.className = 'msgContent left';
+            ul.appendChild(newLi30);
+            var div = document.createElement('div');
+            div.style = 'clear:both';
+            ul.appendChild(div);
+            input.value = '';
+            newLi.scrollIntoView();
+        }
+
+    }
+
+</script>
+
+</head>
+
+<body>
+<div id="main" class="main">
+    <ul id="content" class="content">
+        <img src="https://q1.qlogo.cn/g?b=qq&nk=1325936461&s=640" alt = "ww" style="float:left;border-radius:8px" height="30" />
+        <li class="msgContent left">我帅不帅？</li>
+        <div style="clear:both"></div>
+        <img src="https://q1.qlogo.cn/g?b=qq&nk=10001&s=640" alt = "mht" style="float:right;border-radius:8px" height="30" />
+        <li class="msgContent right">？</li>
+        <div style="clear:both"></div>
+    </ul>
+    <textarea id="msg_input" class="msgInput"></textarea>
+    <button id="sendbtn" class="sendbtn">sent</button>
+</div>
+
+</body>
